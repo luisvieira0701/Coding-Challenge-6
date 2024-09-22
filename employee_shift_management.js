@@ -38,3 +38,14 @@ function assignShift (employeeName, workDay, shiftHours) {
 console.log(assignShift('Dwight Schrute', 'thursday', 6))
 console.log(assignShift('Michael Scott', 'monday', 10))
 
+//Task 4 Create a Function to Calculate total Hours Worked
+function calculateTotalHour (workName) {
+    return workName.shifts.reduce((allshifthours, shift) => allshifthours + shift.hours, 0 )
+        
+}
+
+//Testing Task4 function
+let MichaelShift = employees[0]
+let DwightShift = employees[2]
+console.log(`Michael's total shift hours: ${calculateTotalHour(MichaelShift)}`)
+console.log(`Dwight's total shift hours: ${calculateTotalHour(DwightShift)}`)
