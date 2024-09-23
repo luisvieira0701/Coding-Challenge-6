@@ -49,3 +49,25 @@ let MichaelShift = employees[0]
 let DwightShift = employees[2]
 console.log(`Michael's total shift hours: ${calculateTotalHour(MichaelShift)}`)
 console.log(`Dwight's total shift hours: ${calculateTotalHour(DwightShift)}`)
+
+//Task 5 Create a Function to list Employees with free days
+function listAvailableEmployees (WeekDay) {
+    let filteringEmployeeAvailability = employees.filter(peer => peer.shifts.day === WeekDay)
+
+    return (employees.map(employeePerson => {
+
+        let AssignedEmployee = filteringEmployeeAvailability.some(person => person.name === employeePerson.name)
+        
+        if (AssignedEmployee) {
+            return `${employeePerson.name} has already been assigned a shift on ${WeekDay}`
+        } else {
+            return `${employeePerson.name} is available on ${WeekDay}`
+        } 
+    
+}))
+
+
+}
+
+//Task 5 function test
+listAvailableEmployees('wednesday')
